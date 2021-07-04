@@ -1,0 +1,145 @@
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template: auto / 0.5fr 4fr 0.5fr; //1140/2 = 570px = 57rem, 21.375rem, 35.625rem
+    @media only screen and (min-width: 43.8125em) {
+        grid-template: auto / 1fr minmax(40rem, 1.2fr) minmax(55rem, 2fr) 1fr; //1140/2 = 570px = 57rem, 21.375rem, 35.625rem
+    }
+    align-content: center;
+
+    & > * {
+        background: $color-dark--blue;
+    }
+
+    &__logo {
+        padding: 6rem 5rem;
+        grid-column: 2 / 3;
+        margin-bottom: 5rem;
+        @media only screen and (min-width: 43.8125em) {
+            grid-column: 2 / 3;
+            margin-right: 5rem;
+            margin-bottom: 0;
+        }
+        border-radius: 10px 100px 10px 10px;
+        display: grid;
+        grid-template: 1fr min-content / repeat(3, min-content) 1fr;
+        grid-column-gap: 2rem;
+
+        .logo {
+            display: block;
+            grid-area: 1 / 1 / 2 / -1;
+        }
+
+        .logo-icons {
+            background: $color-very-dark--blue;
+            height: 6rem;
+            width: 6rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__storage {
+        padding: 5rem;
+        grid-column: 2 / 3;
+        align-self: end;
+        @media only screen and (min-width: 43.8125em) {
+            grid-column: 3 / 4;
+        }
+        display: flex;
+        border-radius: 10px;
+        flex-direction: column;
+        position: relative;
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .value {
+            font-size: 4.5rem;
+            font-weight: 700;
+            position: absolute;
+            bottom: -18%;
+            right: 50%;
+            transform: translateX(50%);
+            @media only screen and (min-width: 43.8125em) {
+                top: -30%;
+                right: 15%;
+                transform: translateX(0);
+            }
+            color: $color-very-dark--blue;
+            z-index: 2;
+
+            &__text {
+                font-size: 1.2rem;
+                color: $color-grayish--blue;
+                font-weight: 400;
+            }
+
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 18rem;
+                height: 9.5rem;
+                background: #fff;
+                border-radius: 8px;
+                position: absolute;
+                top: 0;
+                left: -1.2rem;
+                z-index: -1;
+                @media only screen and (min-width: 43.8125em) {
+                    border-radius: 8px 8px 0 8px;
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 80% 80%, 0 80%);
+                }
+            }
+        }
+
+        .min-max {
+            position: relative;
+
+            .circle {
+                position: absolute;
+                top: 18%;
+                left: 68%;
+                transform: translate(-50%, -50%);
+                z-index: 3;
+                height: 1.5rem;
+                width: 1.5rem;
+                border-radius: 50%;
+                background: $color-pale--blue;
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                width: 70%;
+                height: 2rem;
+                border-radius: 25px;
+                background: $primary-gradient;
+                position: relative;
+                z-index: 1;
+                margin-bottom: 1rem;
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                width: 102%;
+                height: 3rem;
+                border-radius: 25px;
+                background: $color-very-dark--blue;
+                position: absolute;
+                left: -1%;
+                top: -10%;
+            }
+
+            &-val {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    }
+}

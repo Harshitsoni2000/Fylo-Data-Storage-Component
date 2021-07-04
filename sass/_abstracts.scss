@@ -1,0 +1,28 @@
+
+// Variables
+$primary-gradient: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+$color-pale--blue: hsl(243, 100%, 93%);
+$color-grayish--blue: hsl(229, 7%, 55%);
+$color-dark--blue: hsl(228, 56%, 26%);
+$color-very-dark--blue: hsl(229, 57%, 11%);
+// Mixins
+// 900px/16=56.25em
+// 1200px/16=56.25em
+// 1800px/16=56.25em
+@mixin responsive($breakpoint) {
+    @if $breakpoint == tab-land {
+        @media only screen and (min-width: 56.25em) {
+            @content
+        }
+    }
+    @if $breakpoint == desktop {
+        @media only screen and (min-width: 75em) {
+            @content
+        }
+    }
+    @if $breakpoint == lg-desktop {
+        @media only screen and (min-width: 112.5em) {
+            @content
+        }
+    }
+}
